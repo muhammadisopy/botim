@@ -7,3 +7,4 @@ async def start(msg: types.Message):
         "salom"
     else:
         await msg.answer("ma'lumot topilmadi")
+print("hello")
