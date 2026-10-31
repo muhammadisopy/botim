@@ -1,9 +1,10 @@
 from aiogram import Router, F, types
 import random
-
+from filters.admin import AdminFilter
+from filters.group import GroupFilter
 rt = Router()
 
-@rt.message(F.dice)
+@rt.message(F.dice, AdminFilter(), GroupFilter())
 async def bashoratchi(msg: types.Message):
     emoji = msg.dice.emoji
     son = [1, 2, 3, 4, 5, 6]
