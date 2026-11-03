@@ -1,17 +1,15 @@
 from aiogram import Router, F, types
-import random
 from filters.admin import AdminFilter
 from filters.group import GroupFilter
 rt = Router()
 
 @rt.message(F.dice, AdminFilter(), GroupFilter())
-async def bashoratchi(msg: types.Message):
+async def zar(msg: types.Message):
     emoji = msg.dice.emoji
-    son = [1, 2, 3, 4, 5, 6]
-    random.shuffle(son)
+    son = msg.dice.value
 
     if emoji == "🎲":
-        await msg.answer(f"🎲 100% {son} tushadi")
+        await msg.answer(f"🎲 Tushgan son: {son}")
 
     elif emoji == "🎳":
-        await msg.answer(f"🎳 100%: {son} ta yiqiladi")
+        await msg.answer(f"🎳 Tushgan ochko: {son}")

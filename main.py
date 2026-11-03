@@ -5,6 +5,7 @@ from aiogram.exceptions import (
     TelegramUnauthorizedError,
 )
 from config.settings import BOT_TOKEN
+from handlers.users.ansver_photo import rt as ansver_photo
 from handlers.users.bashoratchi import rt as bashoratchi
 from handlers.users.start import rt as start
 from handlers.users.help import rt as help
@@ -14,6 +15,7 @@ async def main():
     bot = Bot(BOT_TOKEN)
 
     dp.include_router(start)
+    dp.include_router(ansver_photo)
     dp.include_router(bashoratchi)
     dp.include_router(help)
     dp.include_router(test)
