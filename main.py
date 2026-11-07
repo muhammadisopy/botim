@@ -7,7 +7,9 @@ from aiogram.exceptions import (
 from config.settings import BOT_TOKEN
 from handlers.users.ansver_photo import rt as ansver_photo
 from handlers.users.bashoratchi import rt as bashoratchi
+from handlers.users.tajriba import rt as tajriba
 from handlers.users.start import rt as start
+from handlers.users.new import rt as new
 from handlers.users.help import rt as help
 from handlers.users.test import rt as test
 dp = Dispatcher()
@@ -15,6 +17,8 @@ async def main():
     bot = Bot(BOT_TOKEN)
 
     dp.include_router(start)
+    dp.include_router(tajriba)
+    dp.include_router(new)
     dp.include_router(ansver_photo)
     dp.include_router(bashoratchi)
     dp.include_router(help)
