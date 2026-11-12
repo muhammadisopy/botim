@@ -1,15 +1,8 @@
-from aiogram import Router, F, types
-
+from aiogram import Router, types
 rt = Router()
+@rt.message()
+async def tajriba(msg: types.Message):
+    if msg.entities:
+        if msg.entities[0].type in ["url", "type","mention"]:
+            await msg.delete()
 
-
-@rt.message(F.chat.type.in_({"group", "supergroup"}))
-async def reklama_ochir(msg: types.Message):
-    text = msg.text or msg.caption
-
-    if text:
-        if "http" in text or "t.me" in text or "@" in text:
-            try:
-                await msg.delete()
-            except:
-                pass
