@@ -7,4 +7,5 @@ async def help(msg: types.Message):
     await msg.answer("sizga nima yordam beraolaman")
     n = "mendagi barcha kamandalar:\n"
     n += "/start\n"
+    n += "/anketa\n"
     await msg.answer(n)
